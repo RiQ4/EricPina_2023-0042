@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1685660230 source:c:\users\hp\documents\itla\tareas\ppm\repositorio\ericpina_2023-0042\problemas cap. 3\ericpina_p6\main.c
+	<stdio.h>
+	<stdlib.h>
+
