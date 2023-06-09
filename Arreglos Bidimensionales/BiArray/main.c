@@ -4,24 +4,24 @@ const int TAM = 3;
 
 void valores(int matriz[][TAM], int F); //Pide los valores de la matriz
 void impresion(int matriz[][TAM], int F);
-void suma(int M1[][TAM], int M2[][TAM], int F);
+
 
 void main(void)
 {
 
     // int matriz[TAM][TAM];
-    int A1[TAM][TAM];
-    int A2[TAM][TAM];
+    int A1[3][3] = {2, 5, 6,
+                        3, 6, 9,
+                        4, 7, 10};
 
-    valores(A1, TAM);
-    valores(A2, TAM);
-    suma(A1, A2, TAM);
+
+    impresion(A1, TAM);
 
 
 
 }
 
-void valores(int M[][TAM], int F)
+/*void valores(int M[][TAM], int F)
 {
     for (int i = 0; i<F; i++)
     {
@@ -32,6 +32,7 @@ void valores(int M[][TAM], int F)
         }
     }
 }
+*/
 
 void impresion(int M[][TAM], int F)
 {
@@ -46,6 +47,7 @@ void impresion(int M[][TAM], int F)
 }
 
 
+/*
 void suma(int M1[][TAM], int M2[][TAM], int F) {
     int R[F][F];
     for (int i = 0; i<F; i++){
@@ -55,3 +57,4 @@ void suma(int M1[][TAM], int M2[][TAM], int F) {
     }
     impresion(R, TAM);
 }
+*/
