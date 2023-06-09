@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1686312672 source:c:\users\20230042\downloads\test\biarray\main.c
+	<stdio.h>
+	<stdlib.h>
+
