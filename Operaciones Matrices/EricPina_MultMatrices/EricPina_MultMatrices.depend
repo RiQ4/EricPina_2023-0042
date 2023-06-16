@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1686880451 source:c:\users\hp\documents\itla\tareas\ppm\repositorio\ericpina_2023-0042\pruebas\ericpina_multmatrices\main.c
+	<stdio.h>
+	<stdlib.h>
+
