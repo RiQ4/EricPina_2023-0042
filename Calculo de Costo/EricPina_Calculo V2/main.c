@@ -122,7 +122,7 @@ void printData(int S, int E)
         printf("\n---------------------------------------------------------------------------------");
         saveFile(i, E+i);
     }
-    printf("\n\nSe ha guardado el archivo con exito.");
+    printf("\n\nSe ha guardado el archivo con exito.\n");
 }
 
 void saveFile(int X, int E)
@@ -133,10 +133,12 @@ void saveFile(int X, int E)
     if (data != NULL)
     {
         fprintf(data, "\n| %5.2f    \t |  %d    \t |   %5.2f    \t | %5.2f  \t | %5.2f\t|", tabla0.distance, E, tabla0.gVar, tabla0.gFuel[X], tabla0.gVar+tabla0.gFuel[X]);
+        //fprintf(data, "\n%5.2f, %d ,%5.2f, %5.2f, %5.2f", tabla0.distance, E, tabla0.gVar, tabla0.gFuel[X], tabla0.gVar+tabla0.gFuel[X]);
         fclose(data);
     }
     else
     {
         printf("\nError al abrir el archivo.");
+        return;
     }
 }
