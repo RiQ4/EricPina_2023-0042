@@ -70,7 +70,8 @@ namespace EricPina_Calculadora
 
         private void equalBtn_Click(object sender, EventArgs e)
         {
-            Num2 = Convert.ToDouble(ResultBox.Text);
+            Num2 = Convert.ToDouble(ResultBox.Text); //problemita
+            
 
             if (Op=='+')
             {
@@ -128,9 +129,15 @@ namespace EricPina_Calculadora
 
         private void signBtn_Click(object sender, EventArgs e)
         {
+            /*
             Num1 = Convert.ToDouble(ResultBox.Text);
             Num1 *= -1;
             ResultBox.Text = Num1.ToString();
+            */
+            double actNum = Convert.ToDouble(ResultBox.Text);
+            actNum *= -1;
+            ResultBox.Text = actNum.ToString();
+
         }
     }
 }

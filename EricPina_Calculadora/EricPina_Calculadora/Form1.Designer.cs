@@ -320,8 +320,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(369, 426);
+            this.ClientSize = new System.Drawing.Size(369, 409);
             this.Controls.Add(this.divideBtn);
             this.Controls.Add(this.equalBtn);
             this.Controls.Add(this.multBtn);
@@ -345,6 +346,8 @@
             this.Controls.Add(this.num5Btn);
             this.Controls.Add(this.num4Btn);
             this.Controls.Add(this.ResultBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculadora Eric Pina";
