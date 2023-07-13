@@ -1,0 +1,11 @@
+C:\Users\HP\Documents\ITLA\Tareas\PPM\Repositorio\EricPina_2023-0042\Prueba LiteDB\Prueba LiteDB\bin\Debug\Prueba LiteDB.exe.config
+C:\Users\HP\Documents\ITLA\Tareas\PPM\Repositorio\EricPina_2023-0042\Prueba LiteDB\Prueba LiteDB\bin\Debug\Prueba LiteDB.exe
+C:\Users\HP\Documents\ITLA\Tareas\PPM\Repositorio\EricPina_2023-0042\Prueba LiteDB\Prueba LiteDB\bin\Debug\Prueba LiteDB.pdb
+C:\Users\HP\Documents\ITLA\Tareas\PPM\Repositorio\EricPina_2023-0042\Prueba LiteDB\Prueba LiteDB\bin\Debug\LiteDB.dll
+C:\Users\HP\Documents\ITLA\Tareas\PPM\Repositorio\EricPina_2023-0042\Prueba LiteDB\Prueba LiteDB\bin\Debug\LiteDB.xml
+C:\Users\HP\Documents\ITLA\Tareas\PPM\Repositorio\EricPina_2023-0042\Prueba LiteDB\Prueba LiteDB\obj\Debug\Prueba LiteDB.csproj.AssemblyReference.cache
+C:\Users\HP\Documents\ITLA\Tareas\PPM\Repositorio\EricPina_2023-0042\Prueba LiteDB\Prueba LiteDB\obj\Debug\Prueba LiteDB.csproj.SuggestedBindingRedirects.cache
+C:\Users\HP\Documents\ITLA\Tareas\PPM\Repositorio\EricPina_2023-0042\Prueba LiteDB\Prueba LiteDB\obj\Debug\Prueba LiteDB.csproj.CoreCompileInputs.cache
+C:\Users\HP\Documents\ITLA\Tareas\PPM\Repositorio\EricPina_2023-0042\Prueba LiteDB\Prueba LiteDB\obj\Debug\Prueba LiteDB.csproj.CopyComplete
+C:\Users\HP\Documents\ITLA\Tareas\PPM\Repositorio\EricPina_2023-0042\Prueba LiteDB\Prueba LiteDB\obj\Debug\Prueba LiteDB.exe
+C:\Users\HP\Documents\ITLA\Tareas\PPM\Repositorio\EricPina_2023-0042\Prueba LiteDB\Prueba LiteDB\obj\Debug\Prueba LiteDB.pdb
