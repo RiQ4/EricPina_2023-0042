@@ -53,7 +53,6 @@
             this.lblCaseID2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dtgvValues = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +62,7 @@
             this.ValorA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValorV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValorE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvRisks)).BeginInit();
@@ -77,9 +77,10 @@
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl.Location = new System.Drawing.Point(0, 0);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1017, 415);
+            this.tabControl.Size = new System.Drawing.Size(1144, 519);
             this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl.TabIndex = 0;
             this.tabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.ReloadTab2);
@@ -100,16 +101,17 @@
             this.tabPage1.Controls.Add(this.btnSaveData);
             this.tabPage1.Controls.Add(this.btnNewRisk);
             this.tabPage1.Location = new System.Drawing.Point(4, 27);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1009, 384);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage1.Size = new System.Drawing.Size(1136, 488);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Fase #1";
             // 
             // lblActive
             // 
             this.lblActive.AutoSize = true;
-            this.lblActive.Location = new System.Drawing.Point(12, 122);
+            this.lblActive.Location = new System.Drawing.Point(14, 152);
             this.lblActive.Name = "lblActive";
             this.lblActive.Size = new System.Drawing.Size(112, 18);
             this.lblActive.TabIndex = 18;
@@ -121,9 +123,10 @@
             this.txtActive.BackColor = System.Drawing.SystemColors.Control;
             this.txtActive.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtActive.Location = new System.Drawing.Point(112, 123);
+            this.txtActive.Location = new System.Drawing.Point(126, 154);
+            this.txtActive.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtActive.Name = "txtActive";
-            this.txtActive.Size = new System.Drawing.Size(418, 17);
+            this.txtActive.Size = new System.Drawing.Size(470, 17);
             this.txtActive.TabIndex = 17;
             this.txtActive.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtActive.TextChanged += new System.EventHandler(this.UpdateData);
@@ -131,7 +134,7 @@
             // lblAnalyst
             // 
             this.lblAnalyst.AutoSize = true;
-            this.lblAnalyst.Location = new System.Drawing.Point(12, 102);
+            this.lblAnalyst.Location = new System.Drawing.Point(14, 128);
             this.lblAnalyst.Name = "lblAnalyst";
             this.lblAnalyst.Size = new System.Drawing.Size(112, 18);
             this.lblAnalyst.TabIndex = 16;
@@ -143,7 +146,7 @@
             this.lblDate.AutoSize = true;
             this.lblDate.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lblDate.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblDate.Location = new System.Drawing.Point(804, 17);
+            this.lblDate.Location = new System.Drawing.Point(904, 21);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(0, 18);
             this.lblDate.TabIndex = 15;
@@ -152,7 +155,7 @@
             // 
             this.lblCaseID.AutoSize = true;
             this.lblCaseID.ForeColor = System.Drawing.Color.Red;
-            this.lblCaseID.Location = new System.Drawing.Point(804, 41);
+            this.lblCaseID.Location = new System.Drawing.Point(904, 51);
             this.lblCaseID.Name = "lblCaseID";
             this.lblCaseID.Size = new System.Drawing.Size(73, 18);
             this.lblCaseID.TabIndex = 14;
@@ -161,7 +164,7 @@
             // lblSave
             // 
             this.lblSave.AutoSize = true;
-            this.lblSave.Location = new System.Drawing.Point(54, 65);
+            this.lblSave.Location = new System.Drawing.Point(61, 81);
             this.lblSave.Name = "lblSave";
             this.lblSave.Size = new System.Drawing.Size(119, 18);
             this.lblSave.TabIndex = 13;
@@ -170,7 +173,7 @@
             // lblNewRisk
             // 
             this.lblNewRisk.AutoSize = true;
-            this.lblNewRisk.Location = new System.Drawing.Point(54, 18);
+            this.lblNewRisk.Location = new System.Drawing.Point(61, 22);
             this.lblNewRisk.Name = "lblNewRisk";
             this.lblNewRisk.Size = new System.Drawing.Size(114, 18);
             this.lblNewRisk.TabIndex = 12;
@@ -182,9 +185,10 @@
             this.txtID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtID.ForeColor = System.Drawing.Color.Red;
-            this.txtID.Location = new System.Drawing.Point(897, 41);
+            this.txtID.Location = new System.Drawing.Point(1009, 51);
+            this.txtID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(85, 17);
+            this.txtID.Size = new System.Drawing.Size(96, 17);
             this.txtID.TabIndex = 11;
             this.txtID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtID.TextChanged += new System.EventHandler(this.UpdateData);
@@ -194,9 +198,10 @@
             this.txtAnalystName.BackColor = System.Drawing.SystemColors.Control;
             this.txtAnalystName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAnalystName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtAnalystName.Location = new System.Drawing.Point(112, 103);
+            this.txtAnalystName.Location = new System.Drawing.Point(126, 129);
+            this.txtAnalystName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAnalystName.Name = "txtAnalystName";
-            this.txtAnalystName.Size = new System.Drawing.Size(418, 17);
+            this.txtAnalystName.Size = new System.Drawing.Size(470, 17);
             this.txtAnalystName.TabIndex = 8;
             this.txtAnalystName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtAnalystName.TextChanged += new System.EventHandler(this.UpdateData);
@@ -214,11 +219,12 @@
             this.Riesgo,
             this.Daño});
             this.dtgvRisks.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dtgvRisks.Location = new System.Drawing.Point(3, 162);
+            this.dtgvRisks.Location = new System.Drawing.Point(3, 210);
+            this.dtgvRisks.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtgvRisks.Name = "dtgvRisks";
             this.dtgvRisks.RowHeadersWidth = 51;
             this.dtgvRisks.RowTemplate.Height = 24;
-            this.dtgvRisks.Size = new System.Drawing.Size(1003, 219);
+            this.dtgvRisks.Size = new System.Drawing.Size(1130, 274);
             this.dtgvRisks.TabIndex = 4;
             // 
             // ID
@@ -261,18 +267,20 @@
             // 
             // btnSaveData
             // 
-            this.btnSaveData.Location = new System.Drawing.Point(8, 52);
+            this.btnSaveData.Location = new System.Drawing.Point(9, 65);
+            this.btnSaveData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSaveData.Name = "btnSaveData";
-            this.btnSaveData.Size = new System.Drawing.Size(40, 40);
+            this.btnSaveData.Size = new System.Drawing.Size(45, 50);
             this.btnSaveData.TabIndex = 1;
             this.btnSaveData.Text = "✔";
             this.btnSaveData.UseVisualStyleBackColor = true;
             // 
             // btnNewRisk
             // 
-            this.btnNewRisk.Location = new System.Drawing.Point(8, 6);
+            this.btnNewRisk.Location = new System.Drawing.Point(9, 8);
+            this.btnNewRisk.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNewRisk.Name = "btnNewRisk";
-            this.btnNewRisk.Size = new System.Drawing.Size(40, 40);
+            this.btnNewRisk.Size = new System.Drawing.Size(45, 50);
             this.btnNewRisk.TabIndex = 0;
             this.btnNewRisk.Text = "➕";
             this.btnNewRisk.UseVisualStyleBackColor = true;
@@ -288,17 +296,19 @@
             this.tabPage2.Controls.Add(this.dtgvValues);
             this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Location = new System.Drawing.Point(4, 27);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1009, 384);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage2.Size = new System.Drawing.Size(1136, 488);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Fase #2";
             // 
             // lblID
             // 
-            this.lblID.Location = new System.Drawing.Point(883, 41);
+            this.lblID.ForeColor = System.Drawing.Color.Red;
+            this.lblID.Location = new System.Drawing.Point(993, 51);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(100, 23);
+            this.lblID.Size = new System.Drawing.Size(112, 29);
             this.lblID.TabIndex = 18;
             // 
             // label3
@@ -306,7 +316,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.ControlLight;
             this.label3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label3.Location = new System.Drawing.Point(804, 17);
+            this.label3.Location = new System.Drawing.Point(904, 21);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(0, 18);
             this.label3.TabIndex = 15;
@@ -315,7 +325,7 @@
             // 
             this.lblCaseID2.AutoSize = true;
             this.lblCaseID2.ForeColor = System.Drawing.Color.Red;
-            this.lblCaseID2.Location = new System.Drawing.Point(804, 41);
+            this.lblCaseID2.Location = new System.Drawing.Point(904, 51);
             this.lblCaseID2.Name = "lblCaseID2";
             this.lblCaseID2.Size = new System.Drawing.Size(73, 18);
             this.lblCaseID2.TabIndex = 14;
@@ -324,7 +334,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(54, 65);
+            this.label5.Location = new System.Drawing.Point(61, 81);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(119, 18);
             this.label5.TabIndex = 13;
@@ -347,22 +357,15 @@
             this.ValorV,
             this.ValorE});
             this.dtgvValues.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dtgvValues.Location = new System.Drawing.Point(3, 117);
+            this.dtgvValues.Location = new System.Drawing.Point(3, 154);
+            this.dtgvValues.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtgvValues.Name = "dtgvValues";
             this.dtgvValues.RowHeadersWidth = 51;
             this.dtgvValues.RowTemplate.Height = 24;
-            this.dtgvValues.Size = new System.Drawing.Size(1003, 264);
+            this.dtgvValues.Size = new System.Drawing.Size(1130, 330);
             this.dtgvValues.TabIndex = 4;
+            this.dtgvValues.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvValues_CellEndEdit);
             this.dtgvValues.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgtvValues_CellValidating);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(8, 52);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 40);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "✔";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -436,12 +439,23 @@
             this.ValorE.MinimumWidth = 6;
             this.ValorE.Name = "ValorE";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(9, 65);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(45, 50);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "✔";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1017, 415);
+            this.ClientSize = new System.Drawing.Size(1144, 519);
             this.Controls.Add(this.tabControl);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
