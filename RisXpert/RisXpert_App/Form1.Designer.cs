@@ -63,27 +63,47 @@
             this.ValorV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValorE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dtgvEvaluation = new System.Windows.Forms.DataGridView();
+            this.Fase3Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fase3Riesgo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fase3Daño = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CarDeRiesgo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PdeRiesgo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CuanDeRiesgo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dtgvClassification = new System.Windows.Forms.DataGridView();
+            this.ActivoF4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RiesgoF4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ERF4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClassF4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvRisks)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvValues)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvEvaluation)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvClassification)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.tabPage2);
+            this.tabControl.Controls.Add(this.tabPage3);
+            this.tabControl.Controls.Add(this.tabPage4);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1144, 519);
+            this.tabControl.Size = new System.Drawing.Size(1325, 565);
             this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl.TabIndex = 0;
-            this.tabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.ReloadTab2);
+            this.tabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl_Selected);
             // 
             // tabPage1
             // 
@@ -104,14 +124,14 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage1.Size = new System.Drawing.Size(1136, 488);
+            this.tabPage1.Size = new System.Drawing.Size(1317, 534);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Fase #1";
             // 
             // lblActive
             // 
             this.lblActive.AutoSize = true;
-            this.lblActive.Location = new System.Drawing.Point(14, 152);
+            this.lblActive.Location = new System.Drawing.Point(14, 189);
             this.lblActive.Name = "lblActive";
             this.lblActive.Size = new System.Drawing.Size(112, 18);
             this.lblActive.TabIndex = 18;
@@ -123,7 +143,7 @@
             this.txtActive.BackColor = System.Drawing.SystemColors.Control;
             this.txtActive.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtActive.Location = new System.Drawing.Point(126, 154);
+            this.txtActive.Location = new System.Drawing.Point(126, 190);
             this.txtActive.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtActive.Name = "txtActive";
             this.txtActive.Size = new System.Drawing.Size(470, 17);
@@ -134,7 +154,7 @@
             // lblAnalyst
             // 
             this.lblAnalyst.AutoSize = true;
-            this.lblAnalyst.Location = new System.Drawing.Point(14, 128);
+            this.lblAnalyst.Location = new System.Drawing.Point(14, 142);
             this.lblAnalyst.Name = "lblAnalyst";
             this.lblAnalyst.Size = new System.Drawing.Size(112, 18);
             this.lblAnalyst.TabIndex = 16;
@@ -146,7 +166,7 @@
             this.lblDate.AutoSize = true;
             this.lblDate.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lblDate.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblDate.Location = new System.Drawing.Point(904, 21);
+            this.lblDate.Location = new System.Drawing.Point(1095, 35);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(0, 18);
             this.lblDate.TabIndex = 15;
@@ -155,7 +175,7 @@
             // 
             this.lblCaseID.AutoSize = true;
             this.lblCaseID.ForeColor = System.Drawing.Color.Red;
-            this.lblCaseID.Location = new System.Drawing.Point(904, 51);
+            this.lblCaseID.Location = new System.Drawing.Point(1095, 65);
             this.lblCaseID.Name = "lblCaseID";
             this.lblCaseID.Size = new System.Drawing.Size(73, 18);
             this.lblCaseID.TabIndex = 14;
@@ -164,7 +184,7 @@
             // lblSave
             // 
             this.lblSave.AutoSize = true;
-            this.lblSave.Location = new System.Drawing.Point(61, 81);
+            this.lblSave.Location = new System.Drawing.Point(76, 81);
             this.lblSave.Name = "lblSave";
             this.lblSave.Size = new System.Drawing.Size(119, 18);
             this.lblSave.TabIndex = 13;
@@ -173,7 +193,7 @@
             // lblNewRisk
             // 
             this.lblNewRisk.AutoSize = true;
-            this.lblNewRisk.Location = new System.Drawing.Point(61, 22);
+            this.lblNewRisk.Location = new System.Drawing.Point(81, 24);
             this.lblNewRisk.Name = "lblNewRisk";
             this.lblNewRisk.Size = new System.Drawing.Size(114, 18);
             this.lblNewRisk.TabIndex = 12;
@@ -185,7 +205,7 @@
             this.txtID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtID.ForeColor = System.Drawing.Color.Red;
-            this.txtID.Location = new System.Drawing.Point(1009, 51);
+            this.txtID.Location = new System.Drawing.Point(1200, 65);
             this.txtID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(96, 17);
@@ -198,7 +218,7 @@
             this.txtAnalystName.BackColor = System.Drawing.SystemColors.Control;
             this.txtAnalystName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAnalystName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtAnalystName.Location = new System.Drawing.Point(126, 129);
+            this.txtAnalystName.Location = new System.Drawing.Point(126, 143);
             this.txtAnalystName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAnalystName.Name = "txtAnalystName";
             this.txtAnalystName.Size = new System.Drawing.Size(470, 17);
@@ -219,12 +239,12 @@
             this.Riesgo,
             this.Daño});
             this.dtgvRisks.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dtgvRisks.Location = new System.Drawing.Point(3, 210);
+            this.dtgvRisks.Location = new System.Drawing.Point(3, 227);
             this.dtgvRisks.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtgvRisks.Name = "dtgvRisks";
             this.dtgvRisks.RowHeadersWidth = 51;
             this.dtgvRisks.RowTemplate.Height = 24;
-            this.dtgvRisks.Size = new System.Drawing.Size(1130, 274);
+            this.dtgvRisks.Size = new System.Drawing.Size(1311, 303);
             this.dtgvRisks.TabIndex = 4;
             // 
             // ID
@@ -270,7 +290,7 @@
             this.btnSaveData.Location = new System.Drawing.Point(9, 65);
             this.btnSaveData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSaveData.Name = "btnSaveData";
-            this.btnSaveData.Size = new System.Drawing.Size(45, 50);
+            this.btnSaveData.Size = new System.Drawing.Size(50, 50);
             this.btnSaveData.TabIndex = 1;
             this.btnSaveData.Text = "✔";
             this.btnSaveData.UseVisualStyleBackColor = true;
@@ -280,7 +300,7 @@
             this.btnNewRisk.Location = new System.Drawing.Point(9, 8);
             this.btnNewRisk.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNewRisk.Name = "btnNewRisk";
-            this.btnNewRisk.Size = new System.Drawing.Size(45, 50);
+            this.btnNewRisk.Size = new System.Drawing.Size(50, 50);
             this.btnNewRisk.TabIndex = 0;
             this.btnNewRisk.Text = "➕";
             this.btnNewRisk.UseVisualStyleBackColor = true;
@@ -299,14 +319,14 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage2.Size = new System.Drawing.Size(1136, 488);
+            this.tabPage2.Size = new System.Drawing.Size(1317, 534);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Fase #2";
             // 
             // lblID
             // 
             this.lblID.ForeColor = System.Drawing.Color.Red;
-            this.lblID.Location = new System.Drawing.Point(993, 51);
+            this.lblID.Location = new System.Drawing.Point(1197, 65);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(112, 29);
             this.lblID.TabIndex = 18;
@@ -316,7 +336,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.ControlLight;
             this.label3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label3.Location = new System.Drawing.Point(904, 21);
+            this.label3.Location = new System.Drawing.Point(1108, 35);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(0, 18);
             this.label3.TabIndex = 15;
@@ -325,7 +345,7 @@
             // 
             this.lblCaseID2.AutoSize = true;
             this.lblCaseID2.ForeColor = System.Drawing.Color.Red;
-            this.lblCaseID2.Location = new System.Drawing.Point(904, 51);
+            this.lblCaseID2.Location = new System.Drawing.Point(1108, 65);
             this.lblCaseID2.Name = "lblCaseID2";
             this.lblCaseID2.Size = new System.Drawing.Size(73, 18);
             this.lblCaseID2.TabIndex = 14;
@@ -334,7 +354,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(61, 81);
+            this.label5.Location = new System.Drawing.Point(73, 138);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(119, 18);
             this.label5.TabIndex = 13;
@@ -357,12 +377,12 @@
             this.ValorV,
             this.ValorE});
             this.dtgvValues.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dtgvValues.Location = new System.Drawing.Point(3, 154);
+            this.dtgvValues.Location = new System.Drawing.Point(3, 200);
             this.dtgvValues.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtgvValues.Name = "dtgvValues";
             this.dtgvValues.RowHeadersWidth = 51;
             this.dtgvValues.RowTemplate.Height = 24;
-            this.dtgvValues.Size = new System.Drawing.Size(1130, 330);
+            this.dtgvValues.Size = new System.Drawing.Size(1311, 330);
             this.dtgvValues.TabIndex = 4;
             this.dtgvValues.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvValues_CellEndEdit);
             this.dtgvValues.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgtvValues_CellValidating);
@@ -441,20 +461,153 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(9, 65);
+            this.button1.Location = new System.Drawing.Point(8, 122);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(45, 50);
+            this.button1.Size = new System.Drawing.Size(50, 50);
             this.button1.TabIndex = 1;
             this.button1.Text = "✔";
             this.button1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.dtgvEvaluation);
+            this.tabPage3.Location = new System.Drawing.Point(4, 27);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1317, 534);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Fase #3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // dtgvEvaluation
+            // 
+            this.dtgvEvaluation.AllowUserToAddRows = false;
+            this.dtgvEvaluation.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvEvaluation.BackgroundColor = System.Drawing.SystemColors.Menu;
+            this.dtgvEvaluation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvEvaluation.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Fase3Activo,
+            this.Fase3Riesgo,
+            this.Fase3Daño,
+            this.CarDeRiesgo,
+            this.PdeRiesgo,
+            this.CuanDeRiesgo});
+            this.dtgvEvaluation.Location = new System.Drawing.Point(3, 95);
+            this.dtgvEvaluation.Name = "dtgvEvaluation";
+            this.dtgvEvaluation.RowHeadersWidth = 51;
+            this.dtgvEvaluation.RowTemplate.Height = 24;
+            this.dtgvEvaluation.Size = new System.Drawing.Size(1311, 435);
+            this.dtgvEvaluation.TabIndex = 0;
+            // 
+            // Fase3Activo
+            // 
+            this.Fase3Activo.HeaderText = "Bien o Activo";
+            this.Fase3Activo.MinimumWidth = 6;
+            this.Fase3Activo.Name = "Fase3Activo";
+            this.Fase3Activo.ReadOnly = true;
+            // 
+            // Fase3Riesgo
+            // 
+            this.Fase3Riesgo.HeaderText = "Riesgo";
+            this.Fase3Riesgo.MinimumWidth = 6;
+            this.Fase3Riesgo.Name = "Fase3Riesgo";
+            this.Fase3Riesgo.ReadOnly = true;
+            // 
+            // Fase3Daño
+            // 
+            this.Fase3Daño.HeaderText = "Daño";
+            this.Fase3Daño.MinimumWidth = 6;
+            this.Fase3Daño.Name = "Fase3Daño";
+            this.Fase3Daño.ReadOnly = true;
+            // 
+            // CarDeRiesgo
+            // 
+            this.CarDeRiesgo.HeaderText = "Carácter de Riesgo";
+            this.CarDeRiesgo.MinimumWidth = 6;
+            this.CarDeRiesgo.Name = "CarDeRiesgo";
+            this.CarDeRiesgo.ReadOnly = true;
+            // 
+            // PdeRiesgo
+            // 
+            this.PdeRiesgo.HeaderText = "Prob. de Riesgo \"Pb\"";
+            this.PdeRiesgo.MinimumWidth = 6;
+            this.PdeRiesgo.Name = "PdeRiesgo";
+            this.PdeRiesgo.ReadOnly = true;
+            // 
+            // CuanDeRiesgo
+            // 
+            this.CuanDeRiesgo.HeaderText = "Cuantificación de Riesgo \"ER\"";
+            this.CuanDeRiesgo.MinimumWidth = 6;
+            this.CuanDeRiesgo.Name = "CuanDeRiesgo";
+            this.CuanDeRiesgo.ReadOnly = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.dtgvClassification);
+            this.tabPage4.Location = new System.Drawing.Point(4, 27);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1317, 534);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Fase #4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // dtgvClassification
+            // 
+            this.dtgvClassification.AllowUserToAddRows = false;
+            this.dtgvClassification.AllowUserToDeleteRows = false;
+            this.dtgvClassification.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvClassification.BackgroundColor = System.Drawing.SystemColors.Menu;
+            this.dtgvClassification.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvClassification.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ActivoF4,
+            this.RiesgoF4,
+            this.ERF4,
+            this.ClassF4});
+            this.dtgvClassification.Location = new System.Drawing.Point(3, 95);
+            this.dtgvClassification.Name = "dtgvClassification";
+            this.dtgvClassification.ReadOnly = true;
+            this.dtgvClassification.RowHeadersWidth = 51;
+            this.dtgvClassification.RowTemplate.Height = 24;
+            this.dtgvClassification.Size = new System.Drawing.Size(1311, 435);
+            this.dtgvClassification.TabIndex = 0;
+            // 
+            // ActivoF4
+            // 
+            this.ActivoF4.HeaderText = "Bien o Activo";
+            this.ActivoF4.MinimumWidth = 6;
+            this.ActivoF4.Name = "ActivoF4";
+            this.ActivoF4.ReadOnly = true;
+            // 
+            // RiesgoF4
+            // 
+            this.RiesgoF4.HeaderText = "Riesgo";
+            this.RiesgoF4.MinimumWidth = 6;
+            this.RiesgoF4.Name = "RiesgoF4";
+            this.RiesgoF4.ReadOnly = true;
+            // 
+            // ERF4
+            // 
+            this.ERF4.HeaderText = "ER";
+            this.ERF4.MinimumWidth = 6;
+            this.ERF4.Name = "ERF4";
+            this.ERF4.ReadOnly = true;
+            // 
+            // ClassF4
+            // 
+            this.ClassF4.HeaderText = "Clasificación de Riesgo";
+            this.ClassF4.MinimumWidth = 6;
+            this.ClassF4.Name = "ClassF4";
+            this.ClassF4.ReadOnly = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1144, 519);
+            this.ClientSize = new System.Drawing.Size(1325, 565);
             this.Controls.Add(this.tabControl);
+            this.Font = new System.Drawing.Font("Arial Unicode MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "Form1";
@@ -467,6 +620,10 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvValues)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvEvaluation)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvClassification)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -508,6 +665,20 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ValorA;
         private System.Windows.Forms.DataGridViewTextBoxColumn ValorV;
         private System.Windows.Forms.DataGridViewTextBoxColumn ValorE;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.DataGridView dtgvEvaluation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fase3Activo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fase3Riesgo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fase3Daño;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CarDeRiesgo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PdeRiesgo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CuanDeRiesgo;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.DataGridView dtgvClassification;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ActivoF4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RiesgoF4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ERF4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClassF4;
     }
 }
 

@@ -33,26 +33,10 @@ namespace RisXpert_App
                 dtgvRisks.Rows[i].Cells[2].Value = txtActive.Text;
             }
         }
-        private void ReloadTab2(object sender, TabControlEventArgs e)
-        {
-            lblID.Text = txtID.Text;
-            for (int i = 0; i < dtgvRisks.Rows.Count; i++)
-            {
-                if (dtgvValues.Rows.Count < dtgvRisks.Rows.Count)
-                {
-                    dtgvValues.Rows.Add();
-                }
-                dtgvValues.Rows[i].Cells[0].Value = dtgvRisks.Rows[i].Cells[2].Value;
-                dtgvValues.Rows[i].Cells[1].Value = dtgvRisks.Rows[i].Cells[3].Value;
-                dtgvValues.Rows[i].Cells[2].Value = dtgvRisks.Rows[i].Cells[4].Value;
-            }
-
-        }
-
         private void dgtvValues_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             // Check if the current column index is the one you want to validate (replace 1 with the actual column index)
-            if (e.ColumnIndex >= 3 && e.ColumnIndex <=8 && !string.IsNullOrEmpty(e.FormattedValue.ToString()))
+            if (e.ColumnIndex >= 3 && e.ColumnIndex <= 8 && !string.IsNullOrEmpty(e.FormattedValue.ToString()))
             {
                 // Try to parse the input value as an integer
                 if (!int.TryParse(e.FormattedValue.ToString(), out int numericValue))
@@ -73,28 +57,28 @@ namespace RisXpert_App
 
         private void dtgvValues_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewCell cell = dtgvValues.Rows[e.RowIndex].Cells[e.ColumnIndex];
-            if (e.ColumnIndex>=3)
+            DataGridViewCell cellValues = dtgvValues.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+            if (e.ColumnIndex >= 3)
             {
-                if (int.TryParse(cell.Value?.ToString(), out int numericValue) && numericValue >= 1 && numericValue <= 5)
+                if (int.TryParse(cellValues.Value?.ToString(), out int numericValue))
                 {
-                    // Assign the BackColor based on the numeric value
                     switch (numericValue)
                     {
                         case 1:
-                            cell.Style.BackColor = Color.Lime;
+                            cellValues.Style.BackColor = Color.Lime;
                             break;
                         case 2:
-                            cell.Style.BackColor = Color.LimeGreen;
+                            cellValues.Style.BackColor = Color.LimeGreen;
                             break;
                         case 3:
-                            cell.Style.BackColor = Color.Yellow;
+                            cellValues.Style.BackColor = Color.Yellow;
                             break;
                         case 4:
-                            cell.Style.BackColor = Color.Orange;
+                            cellValues.Style.BackColor = Color.Orange;
                             break;
                         case 5:
-                            cell.Style.BackColor = Color.Red;
+                            cellValues.Style.BackColor = Color.Red;
                             break;
                         default:
                             break;
@@ -102,34 +86,103 @@ namespace RisXpert_App
                 }
             }
         }
+        private void tabControl_Selected(object sender, TabControlEventArgs e)
+        {
+            for (int i = 0; i < dtgvRisks.Rows.Count; i++)
+            {
+                UpdateTab2(i);
+                UpdateTab3(i);
+                UpdateTab4(i);
+            }
+        }
+        private void UpdateTab2(int i)
+        {
+            lblID.Text = txtID.Text;
+            if (dtgvValues.Rows.Count < dtgvRisks.Rows.Count)
+            {
+                dtgvValues.Rows.Add();
+            }
+            dtgvValues.Rows[i].Cells[0].Value = dtgvRisks.Rows[i].Cells[2].Value;
+            dtgvValues.Rows[i].Cells[1].Value = dtgvRisks.Rows[i].Cells[3].Value;
+            dtgvValues.Rows[i].Cells[2].Value = dtgvRisks.Rows[i].Cells[4].Value;
+        }
+        private void UpdateTab3(int i)
+        {
+            int I = Convert.ToInt32(dtgvValues.Rows[i].Cells[3].Value) * Convert.ToInt32(dtgvValues.Rows[i].Cells[4].Value); //F*S
+            int D = Convert.ToInt32(dtgvValues.Rows[i].Cells[5].Value) * Convert.ToInt32(dtgvValues.Rows[i].Cells[8].Value); //P*E
+            int Pb = Convert.ToInt32(dtgvValues.Rows[i].Cells[6].Value) * Convert.ToInt32(dtgvValues.Rows[i].Cells[7].Value); //A*V
+            int C = I + D;
+            int ER = Pb * C;
+            if (dtgvEvaluation.Rows.Count < dtgvValues.Rows.Count)
+            {
+                dtgvEvaluation.Rows.Add();
+            }
+            dtgvEvaluation.Rows[i].Cells[0].Value = dtgvValues.Rows[i].Cells[0].Value;
+            dtgvEvaluation.Rows[i].Cells[1].Value = dtgvValues.Rows[i].Cells[1].Value;
+            dtgvEvaluation.Rows[i].Cells[2].Value = dtgvValues.Rows[i].Cells[2].Value;
+            dtgvEvaluation.Rows[i].Cells[3].Value = C;
+            dtgvEvaluation.Rows[i].Cells[4].Value = Pb;
+            dtgvEvaluation.Rows[i].Cells[5].Value = ER;
+        }
+        private void UpdateTab4(int i)
+        {
+            if (dtgvClassification.Rows.Count < dtgvEvaluation.Rows.Count)
+            {
+                dtgvClassification.Rows.Add();
+            }
+            dtgvClassification.Rows[i].Cells[0].Value = dtgvEvaluation.Rows[i].Cells[0].Value;
+            dtgvClassification.Rows[i].Cells[1].Value = dtgvEvaluation.Rows[i].Cells[1].Value;
+            dtgvClassification.Rows[i].Cells[2].Value = dtgvEvaluation.Rows[i].Cells[5].Value;
 
+            DataGridViewCell ERValue = dtgvClassification.Rows[i].Cells[2];
 
-        /*private void dtgvValues_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-{
-   for (int i = 0; i<dtgvValues.Rows.Count; i++)
-   {
-       for (int j = 3; j< 8; j++)
-       {
-           switch (dtgvValues.Rows[i].Cells[j].Value.ToString())
-           {
-               case "1":
-                   dtgvValues.Rows[i].Cells[j].Style.BackColor = Color.Green;
-                   break;
-               case "2":
-                   dtgvValues.Rows[i].Cells[j].Style.BackColor = Color.GreenYellow;
-                   break;
-               case "3":
-                   dtgvValues.Rows[i].Cells[j].Style.BackColor = Color.Yellow;
-                   break;
-               case "4":
-                   dtgvValues.Rows[i].Cells[j].Style.BackColor = Color.Orange;
-                   break;
-               case "5":
-                   dtgvValues.Rows[i].Cells[j].Style.BackColor = Color.Red;
-                   break;
-               default:
-                   return;
-*/
+            if (Convert.ToInt32(ERValue.Value) >= 2 && Convert.ToInt32(ERValue.Value) <= 250)
+            {
+                dtgvClassification.Rows[i].Cells[3].Value = "Muy Pequeño";
+                dtgvClassification.Rows[i].Cells[3].Style.BackColor = Color.Lime;
+            }
+            else if (Convert.ToInt32(ERValue.Value) >= 251 && Convert.ToInt32(ERValue.Value) <= 500)
+            {
+                dtgvClassification.Rows[i].Cells[3].Value = "Pequeño";
+                dtgvClassification.Rows[i].Cells[3].Style.BackColor = Color.LimeGreen;
+            }
+            else if (Convert.ToInt32(ERValue.Value) >= 501 && Convert.ToInt32(ERValue.Value) <= 750)
+            {
+                dtgvClassification.Rows[i].Cells[3].Value = "Normal";
+                dtgvClassification.Rows[i].Cells[3].Style.BackColor = Color.Yellow;
+            }
+            else if (Convert.ToInt32(ERValue.Value) >= 751 && Convert.ToInt32(ERValue.Value) <= 1000)
+            {
+                dtgvClassification.Rows[i].Cells[3].Value = "Grande";
+                dtgvClassification.Rows[i].Cells[3].Style.BackColor = Color.Orange;
+            }
+            else if (Convert.ToInt32(ERValue.Value) >= 1001 && Convert.ToInt32(ERValue.Value) <= 1250)
+            {
+                dtgvClassification.Rows[i].Cells[3].Value = "Elevado";
+                dtgvClassification.Rows[i].Cells[3].Style.BackColor = Color.Red;
+            }
+            dtgvClassification.Sort(dtgvClassification.Columns[2], ListSortDirection.Descending);
+        }
+
+        public class RiskAnalysis
+        {
+            public string Analista { get; set; }
+            public string Activo { get; set; }
+            public string Riesgo { get; set; }
+            public string Dano { get; set; }
+            public string Clasificacion { get; set; }
+            public int ID { get; set; }
+            public int S { get; set; }
+            public int F { get; set; }
+            public int P { get; set; }
+            public int A { get; set; }
+            public int V { get; set; }
+            public int E { get; set; }
+            public int CR { get; set; }
+            public int Pb { get; set; }
+            public int ER { get; set; }         
+        }
+        using 
     }
 }
     
