@@ -45,7 +45,7 @@
             this.BienActivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Riesgo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Daño = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSaveData = new System.Windows.Forms.Button();
+            this.btnSave1 = new System.Windows.Forms.Button();
             this.btnNewRisk = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lblID = new System.Windows.Forms.Label();
@@ -62,7 +62,7 @@
             this.ValorA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValorV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValorE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSave2 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dtgvEvaluation = new System.Windows.Forms.DataGridView();
             this.Fase3Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -118,7 +118,7 @@
             this.tabPage1.Controls.Add(this.txtID);
             this.tabPage1.Controls.Add(this.txtAnalystName);
             this.tabPage1.Controls.Add(this.dtgvRisks);
-            this.tabPage1.Controls.Add(this.btnSaveData);
+            this.tabPage1.Controls.Add(this.btnSave1);
             this.tabPage1.Controls.Add(this.btnNewRisk);
             this.tabPage1.Location = new System.Drawing.Point(4, 27);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -285,15 +285,15 @@
             this.Daño.MinimumWidth = 6;
             this.Daño.Name = "Daño";
             // 
-            // btnSaveData
+            // btnSave1
             // 
-            this.btnSaveData.Location = new System.Drawing.Point(9, 65);
-            this.btnSaveData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnSaveData.Name = "btnSaveData";
-            this.btnSaveData.Size = new System.Drawing.Size(50, 50);
-            this.btnSaveData.TabIndex = 1;
-            this.btnSaveData.Text = "✔";
-            this.btnSaveData.UseVisualStyleBackColor = true;
+            this.btnSave1.Location = new System.Drawing.Point(9, 65);
+            this.btnSave1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSave1.Name = "btnSave1";
+            this.btnSave1.Size = new System.Drawing.Size(50, 50);
+            this.btnSave1.TabIndex = 1;
+            this.btnSave1.Text = "✔";
+            this.btnSave1.UseVisualStyleBackColor = true;
             // 
             // btnNewRisk
             // 
@@ -314,7 +314,7 @@
             this.tabPage2.Controls.Add(this.lblCaseID2);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.dtgvValues);
-            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.btnSave2);
             this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage2.Name = "tabPage2";
@@ -459,15 +459,16 @@
             this.ValorE.MinimumWidth = 6;
             this.ValorE.Name = "ValorE";
             // 
-            // button1
+            // btnSave2
             // 
-            this.button1.Location = new System.Drawing.Point(8, 122);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(50, 50);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "✔";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSave2.Location = new System.Drawing.Point(8, 122);
+            this.btnSave2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSave2.Name = "btnSave2";
+            this.btnSave2.Size = new System.Drawing.Size(50, 50);
+            this.btnSave2.TabIndex = 1;
+            this.btnSave2.Text = "✔";
+            this.btnSave2.UseVisualStyleBackColor = true;
+            this.btnSave2.Click += new System.EventHandler(this.btnSave2_Click);
             // 
             // tabPage3
             // 
@@ -632,7 +633,7 @@
 
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button btnSaveData;
+        private System.Windows.Forms.Button btnSave1;
         private System.Windows.Forms.Button btnNewRisk;
         private System.Windows.Forms.DataGridView dtgvRisks;
         private System.Windows.Forms.TextBox txtAnalystName;
@@ -655,7 +656,7 @@
         private System.Windows.Forms.Label lblCaseID2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dtgvValues;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSave2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
