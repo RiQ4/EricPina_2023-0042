@@ -16,18 +16,23 @@ namespace RisXpert_App
             lblDate.Text = DateTime.Today.ToString();
         }
 
+
         private void btnNewRisk_Click(object sender, EventArgs e)
         {
             int _ = dtgvRisks.Rows.Add();
             UpdateData(sender, e);
         }
+
         private void UpdateData(object sender, EventArgs e)
         {
+           
             for (int i = 0; i < dtgvRisks.Rows.Count; i++)
             {
-                dtgvRisks.Rows[i].Cells[0].Value = txtID.Text;
-                dtgvRisks.Rows[i].Cells[1].Value = txtAnalystName.Text;
-                dtgvRisks.Rows[i].Cells[2].Value = txtActive.Text;
+                var dtgvRisksRows = dtgvRisks.Rows[i];
+
+                dtgvRisksRows.Cells[0].Value = txtID.Text;
+                dtgvRisksRows.Cells[1].Value = txtAnalystName.Text;
+                dtgvRisksRows.Cells[2].Value = txtActive.Text;
             }
         }
         private void dgtvValues_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
@@ -94,42 +99,62 @@ namespace RisXpert_App
         }
         private void UpdateTab2(int i)
         {
+            var dtgvValuesRows = dtgvValues.Rows[i];
+            var dtgvRisksRows = dtgvRisks.Rows[i];
             lblID.Text = txtID.Text;
+
             if (dtgvValues.Rows.Count < dtgvRisks.Rows.Count)
             {
                 dtgvValues.Rows.Add();
             }
-            dtgvValues.Rows[i].Cells[0].Value = dtgvRisks.Rows[i].Cells[2].Value;
-            dtgvValues.Rows[i].Cells[1].Value = dtgvRisks.Rows[i].Cells[3].Value;
-            dtgvValues.Rows[i].Cells[2].Value = dtgvRisks.Rows[i].Cells[4].Value;
+            dtgvValuesRows.Cells[0].Value = dtgvRisksRows.Cells[2].Value;
+            dtgvValuesRows.Cells[1].Value = dtgvRisksRows.Cells[3].Value;
+            dtgvValuesRows.Cells[2].Value = dtgvRisksRows.Cells[4].Value;
         }
         private void UpdateTab3(int i)
         {
-            int I = Convert.ToInt32(dtgvValues.Rows[i].Cells[3].Value) * Convert.ToInt32(dtgvValues.Rows[i].Cells[4].Value); //F*S
-            int D = Convert.ToInt32(dtgvValues.Rows[i].Cells[5].Value) * Convert.ToInt32(dtgvValues.Rows[i].Cells[8].Value); //P*E
-            int Pb = Convert.ToInt32(dtgvValues.Rows[i].Cells[6].Value) * Convert.ToInt32(dtgvValues.Rows[i].Cells[7].Value); //A*V
+            var dtgvEvaluationRows = dtgvEvaluation.Rows[i];
+            var dtgvValuesRows = dtgvValues.Rows[i];
+
+            int F = Convert.ToInt32(dtgvValuesRows.Cells[3].Value);
+            int S = Convert.ToInt32(dtgvValuesRows.Cells[4].Value);
+            int P = Convert.ToInt32(dtgvValuesRows.Cells[5].Value);
+            int E = Convert.ToInt32(dtgvValuesRows.Cells[8].Value);
+            int A = Convert.ToInt32(dtgvValuesRows.Cells[6].Value);
+            int V = Convert.ToInt32(dtgvValuesRows.Cells[7].Value);
+
+            int I = F * S;
+            int D = P * E;
+            int Pb = A * V;
             int C = I + D;
             int ER = Pb * C;
+
             if (dtgvEvaluation.Rows.Count < dtgvValues.Rows.Count)
             {
                 dtgvEvaluation.Rows.Add();
             }
-            dtgvEvaluation.Rows[i].Cells[0].Value = dtgvValues.Rows[i].Cells[0].Value;
-            dtgvEvaluation.Rows[i].Cells[1].Value = dtgvValues.Rows[i].Cells[1].Value;
-            dtgvEvaluation.Rows[i].Cells[2].Value = dtgvValues.Rows[i].Cells[2].Value;
-            dtgvEvaluation.Rows[i].Cells[3].Value = C;
-            dtgvEvaluation.Rows[i].Cells[4].Value = Pb;
-            dtgvEvaluation.Rows[i].Cells[5].Value = ER;
+
+            dtgvEvaluationRows.Cells[0].Value = dtgvValuesRows.Cells[0].Value;
+            dtgvEvaluationRows.Cells[1].Value = dtgvValuesRows.Cells[1].Value;
+            dtgvEvaluationRows.Cells[2].Value = dtgvValuesRows.Cells[2].Value;
+
+            dtgvEvaluationRows.Cells[3].Value = C;
+            dtgvEvaluationRows.Cells[4].Value = Pb;
+            dtgvEvaluationRows.Cells[5].Value = ER;
         }
         private void UpdateTab4(int i)
         {
+
             if (dtgvClassification.Rows.Count < dtgvEvaluation.Rows.Count)
             {
                 dtgvClassification.Rows.Add();
             }
-            dtgvClassification.Rows[i].Cells[0].Value = dtgvEvaluation.Rows[i].Cells[0].Value;
-            dtgvClassification.Rows[i].Cells[1].Value = dtgvEvaluation.Rows[i].Cells[1].Value;
-            dtgvClassification.Rows[i].Cells[2].Value = dtgvEvaluation.Rows[i].Cells[5].Value;
+            var dtgvClassRows = dtgvClassification.Rows[i];
+            var dtgvEvaluationRows = dtgvEvaluation.Rows[i];
+
+            dtgvClassRows.Cells[0].Value = dtgvEvaluationRows.Cells[0].Value;
+            dtgvClassRows.Cells[1].Value = dtgvEvaluationRows.Cells[1].Value;
+            dtgvClassRows.Cells[2].Value = dtgvEvaluationRows.Cells[5].Value;
 
             DataGridViewCell ERValue = dtgvClassification.Rows[i].Cells[2];
             DataGridViewRow ClassRow = dtgvClassification.Rows[i];
@@ -186,11 +211,9 @@ namespace RisXpert_App
         {
             using (var db = new LiteDatabase(@"C:\Users\HP\Desktop\Test.db"))
             {
-                // Get a collection (or create, if doesn't exist)
                 var col = db.GetCollection<RiskAnalysis>(txtActive.Text + "_" + txtID.Text);
                 DataGridViewRow Evaluation = dtgvEvaluation.Rows[i];
                 DataGridViewRow Values = dtgvValues.Rows[i];
-                // Create your new customer instance
                 var DataSave = new RiskAnalysis
                 {
                     //ID = 1,
@@ -198,6 +221,7 @@ namespace RisXpert_App
                     Activo = txtActive.Text,
                     Riesgo = Evaluation.Cells[1].Value.ToString(),
                     Dano = Evaluation.Cells[2].Value.ToString(),
+
                     S = Convert.ToInt16(Values.Cells[3].Value),
                     F = Convert.ToInt16(Values.Cells[4].Value),
                     P = Convert.ToInt16(Values.Cells[5].Value),
@@ -207,10 +231,10 @@ namespace RisXpert_App
                     CR = Convert.ToInt32(Evaluation.Cells[3].Value),
                     Pb = Convert.ToInt32(Evaluation.Cells[4].Value),
                     ER = Convert.ToInt32(Evaluation.Cells[5].Value),
+
                     Clasificacion = Classify(i)
                 };
                 col.Insert(DataSave);
-
             }
         }
         private string Classify(int i)
