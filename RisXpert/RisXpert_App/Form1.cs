@@ -1,38 +1,42 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using LiteDB;
-
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 namespace RisXpert_App
 {
     public partial class Form1 : Form
     {
+        List<RiskAnalysis> ListaRiesgos = new List<RiskAnalysis>();
+        RiskAnalysis R = new RiskAnalysis();
         public Form1()
         {
             InitializeComponent();
             lblDate.Text = DateTime.Today.ToString();
         }
 
-
         private void btnNewRisk_Click(object sender, EventArgs e)
         {
-            int _ = dtgvRisks.Rows.Add();
+            dtgvRisks.Rows.Add();
             UpdateData(sender, e);
         }
-
         private void UpdateData(object sender, EventArgs e)
         {
            
             for (int i = 0; i < dtgvRisks.Rows.Count; i++)
             {
+
                 var dtgvRisksRows = dtgvRisks.Rows[i];
+                R.Analista = txtAnalystName.Text;
+                R.Activo = txtActive.Text;
 
                 dtgvRisksRows.Cells[0].Value = txtID.Text;
-                dtgvRisksRows.Cells[1].Value = txtAnalystName.Text;
-                dtgvRisksRows.Cells[2].Value = txtActive.Text;
+                dtgvRisksRows.Cells[1].Value = R.Analista;
+                dtgvRisksRows.Cells[2].Value = R.Activo;
             }
         }
         private void dgtvValues_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
@@ -99,7 +103,6 @@ namespace RisXpert_App
         }
         private void UpdateTab2(int i)
         {
-            var dtgvValuesRows = dtgvValues.Rows[i];
             var dtgvRisksRows = dtgvRisks.Rows[i];
             lblID.Text = txtID.Text;
 
@@ -107,13 +110,14 @@ namespace RisXpert_App
             {
                 dtgvValues.Rows.Add();
             }
-            dtgvValuesRows.Cells[0].Value = dtgvRisksRows.Cells[2].Value;
-            dtgvValuesRows.Cells[1].Value = dtgvRisksRows.Cells[3].Value;
+            var dtgvValuesRows = dtgvValues.Rows[i];
+            dtgvValuesRows.Cells[0].Value = R.Activo;
+            dtgvValuesRows.Cells[1].Value = R.Riesgo;
             dtgvValuesRows.Cells[2].Value = dtgvRisksRows.Cells[4].Value;
         }
         private void UpdateTab3(int i)
         {
-            var dtgvEvaluationRows = dtgvEvaluation.Rows[i];
+            
             var dtgvValuesRows = dtgvValues.Rows[i];
 
             int F = Convert.ToInt32(dtgvValuesRows.Cells[3].Value);
@@ -133,6 +137,7 @@ namespace RisXpert_App
             {
                 dtgvEvaluation.Rows.Add();
             }
+            var dtgvEvaluationRows = dtgvEvaluation.Rows[i];
 
             dtgvEvaluationRows.Cells[0].Value = dtgvValuesRows.Cells[0].Value;
             dtgvEvaluationRows.Cells[1].Value = dtgvValuesRows.Cells[1].Value;
@@ -149,8 +154,8 @@ namespace RisXpert_App
             {
                 dtgvClassification.Rows.Add();
             }
-            var dtgvClassRows = dtgvClassification.Rows[i];
-            var dtgvEvaluationRows = dtgvEvaluation.Rows[i];
+            DataGridViewRow dtgvClassRows = dtgvClassification.Rows[i];
+            DataGridViewRow dtgvEvaluationRows = dtgvEvaluation.Rows[i];
 
             dtgvClassRows.Cells[0].Value = dtgvEvaluationRows.Cells[0].Value;
             dtgvClassRows.Cells[1].Value = dtgvEvaluationRows.Cells[1].Value;
@@ -195,7 +200,7 @@ namespace RisXpert_App
             public string Riesgo { get; set; }
             public string Dano { get; set; }
             public string Clasificacion { get; set; }
-            //public int ID { get; set; }
+            public int _id { get; set; }
             public int S { get; set; }
             public int F { get; set; }
             public int P { get; set; }
@@ -237,6 +242,7 @@ namespace RisXpert_App
                 col.Insert(DataSave);
             }
         }
+        
         private string Classify(int i)
         {
             DataGridViewCell ERValue = dtgvClassification.Rows[i].Cells[2];
@@ -270,13 +276,8 @@ namespace RisXpert_App
             {
                 UpdateTab3(i);
                 UpdateTab4(i);
-                SaveData(i);
+                //SaveData(i);
             }
         }
     }
 }
-      
-
-
-
-    
