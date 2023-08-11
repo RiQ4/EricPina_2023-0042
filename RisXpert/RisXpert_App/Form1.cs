@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
 using LiteDB;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 namespace RisXpert_App
@@ -166,7 +164,7 @@ namespace RisXpert_App
                 CurrentRow.CR = I + D;
                 CurrentRow.ER = CurrentRow.Pb * CurrentRow.CR;
                 CurrentRow.Clasificacion = Classify(i);
-                //dtgvFase4.Sort(dtgvFase4.Columns[2], ListSortDirection.Descending);
+                //ListaRiesgos.OrderBy()
             }
         }
         private void UpdateData(object sender, EventArgs e)
@@ -175,7 +173,6 @@ namespace RisXpert_App
             for (int i = 0; i < dtgvFase1.Rows.Count; i++)
             {
                 var Fase1Rows = dtgvFase1.Rows[i];
-                var Fase4Rows = dtgvFase4.Rows[i];
 
                 Fase1Rows.Cells[0].Value = txtAnalystName.Text;
                 Fase1Rows.Cells[1].Value = txtActive.Text;
@@ -204,12 +201,16 @@ namespace RisXpert_App
         {
             using (var db = new LiteDatabase(@"C:\Users\HP\Desktop\Test.db"))
             {
-                var col = db.GetCollection<RiskAnalysis>(txtActive.Text + "_" + txtID.Text);
-                var DataSave = new RiskAnalysis();
+                string ColName = txtActive.Text + "_" + txtID.Text;
+                var col = db.GetCollection<RiskAnalysis>(ColName);
+                if (!db.CollectionExists(ColName))
                 {
                     col.InsertBulk(ListaRiesgos);
+                }
+                else
+                {
+                    col.Update(ListaRiesgos);
                 };
-                col.Insert(DataSave);
             }
         }
         
